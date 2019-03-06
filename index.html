@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+        <meta charset="utf-8" />
+        <title>OSS College Layout</title>
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/css/bootstrap.min.css"
+            integrity="sha384-PDle/QlgIONtM1aqA2Qemk5gPOE7wFq8+Em+G/hmo5Iq0CCmYZLv3fVRDJ4MMwEA"
+            crossorigin="anonymous"
+        />
+        <style>
+            /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+            #map {
+                height: 94%;
+            }
+            /* Optional: Makes the sample page fill the window. */
+            html,
+            body {
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            .row {
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="#">
+                <img
+                    src="./oss_lg_white.png"
+                    width="30"
+                    height="30"
+                    class="d-inline-block align-top"
+                    alt=""
+                />
+                OSS College Layout
+            </a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <button
+                        class="btn btn-outline-danger"
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded="false"
+                        onclick="openNavigation()"
+                    >
+                        Navigate
+                    </button>
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-outline-success btn-block dropdown-toggle"
+                            type="button"
+                            id="startButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            Your Location (A)
+                        </button>
+                        <div
+                            class="dropdown-menu"
+                            aria-labelledby="startButton"
+                        >
+                            <a
+                                class="dropdown-item"
+                                id="cr_yl"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Your Location</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_mg"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Main Gate</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_con"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Conference Room</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_c3"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >C 103</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_c5"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >C 105</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_hm"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Hawa Mahal</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_a7"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >A 107</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_ch"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Conference hall</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_cl"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Central Lawn</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="cr_au"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Auditorium</a
+                            >
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button
+                            class="btn btn-outline-info btn-block dropdown-toggle"
+                            type="button"
+                            id="destButton"
+                            data-toggle="dropdown"
+                            aria-haspopup="true"
+                            aria-expanded="false"
+                        >
+                            Main Gate (B)
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="destButton">
+                            <a
+                                class="dropdown-item"
+                                id="dt_mg"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Main Gate</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="dt_con"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Conference Room</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="dt_c3"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >C 103</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="dt_c5"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >C 105</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="dt_hm"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Hawa Mahal</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="dt_a7"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >A 107</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="dt_ch"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Conference hall</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="dt_cl"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Central Lawn</a
+                            >
+                            <a
+                                class="dropdown-item"
+                                id="dt_au"
+                                onclick="getLocation(this)"
+                                href="#"
+                                >Auditorium</a
+                            >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div id="map"></div>
+        <script
+            src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+            integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+            integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+            crossorigin="anonymous"
+        ></script>
+        <script src="main.js"></script>
+        <script
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNLt0YQz432NSTuQjeZ17OHo2aHdGMwPY&callback=initMap"
+        >
+            async
+            defer
+        </script>
+    </body>
+</html>
